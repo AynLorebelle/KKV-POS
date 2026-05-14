@@ -15,11 +15,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Create demo account
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Demo User',
+            'email' => 'demo@example.com',
+            'password' => bcrypt('password'),
         ]);
+
+        // Create random products
+        \App\Models\Product::factory(10)->create();
+
+        // Create random transactions with items
+        \App\Models\Transaction::factory(10)->create()->each(function ($transaction) {
+            \App\Models\TransactionItem::factory(rand(1, 5))->create([
+                'transaction_id' => $transaction->id,
+            ]);
+        });
     }
 }

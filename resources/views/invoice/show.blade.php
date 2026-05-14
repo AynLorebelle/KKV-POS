@@ -181,8 +181,17 @@
             THIS SERVES AS OFFICIAL SALES INVOICE
         </div>
         
-        <div class="text-center" style="margin-top: 20px;">
-            <a href="{{ route('pos.index') }}" style="display: inline-block; padding: 10px 20px; background-color: #3490dc; color: #fff; text-decoration: none; border-radius: 5px; font-family: sans-serif;">Back to POS</a>
+        <style>
+            @media print {
+                body { background-color: white; padding: 0; }
+                .receipt { box-shadow: none; width: 100%; max-width: 320px; padding: 0; }
+                .no-print { display: none !important; }
+            }
+        </style>
+
+        <div class="text-center no-print" style="margin-top: 30px; display: flex; gap: 10px; justify-content: center;">
+            <button onclick="window.print()" style="padding: 10px 20px; background-color: #000; color: #fff; border: 2px solid #000; cursor: pointer; font-family: sans-serif; font-weight: bold; border-radius: 5px;">Print Invoice</button>
+            <a href="{{ route('pos.index') }}" style="display: inline-block; padding: 10px 20px; background-color: #fff; color: #000; border: 2px solid #000; text-decoration: none; border-radius: 5px; font-family: sans-serif; font-weight: bold;">New Transaction</a>
         </div>
     </div>
 </body>

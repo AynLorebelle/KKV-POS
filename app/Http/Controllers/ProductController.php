@@ -9,7 +9,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::withSum('transactionItems as units_sold', 'qty')
+            ->withSum('transactionItems as revenue', 'amount')
+            ->get();
 
         return view('products.index', compact('products'));
     }
@@ -53,5 +55,21 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+    }
+
+    public function restock(Request $request, Product $product)
+    {
+        $request->validate([
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        $product->stock += $request->quantity;
+        $product->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => "Stock updated: {$product->name} now has {$product->stock} units.",
+            'new_stock' => $product->stock,
+        ]);
     }
 }

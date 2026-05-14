@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Transaction extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'invoice_no', 'cashier_name', 'total_amount',
         'cash_tendered', 'change', 'vatable_sales',

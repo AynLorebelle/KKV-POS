@@ -2,24 +2,6 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <!-- Role Access Info -->
-    <div class="mb-6 grid grid-cols-3 gap-2 text-center">
-        <div class="p-2 rounded-xl border-2 border-accent/20 bg-amber-50">
-            <div class="text-xl mb-1">👑</div>
-            <div class="text-[10px] font-black text-accent uppercase tracking-wide">Admin</div>
-            <div class="text-[9px] text-gray-500 mt-0.5">Full access</div>
-        </div>
-        <div class="p-2 rounded-xl border-2 border-accent/20 bg-blue-50">
-            <div class="text-xl mb-1">🧾</div>
-            <div class="text-[10px] font-black text-accent uppercase tracking-wide">Cashier</div>
-            <div class="text-[9px] text-gray-500 mt-0.5">POS & Products</div>
-        </div>
-        <div class="p-2 rounded-xl border-2 border-accent/20 bg-green-50">
-            <div class="text-xl mb-1">🛍️</div>
-            <div class="text-[10px] font-black text-accent uppercase tracking-wide">Customer</div>
-            <div class="text-[9px] text-gray-500 mt-0.5">Order history</div>
-        </div>
-    </div>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf

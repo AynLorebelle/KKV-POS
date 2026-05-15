@@ -104,12 +104,17 @@ class TransactionController extends Controller
         if ($request->date) {
             $query->whereDate('created_at', $request->date);
         }
-        
+
+        if ($request->month) {
+            [$year, $month] = explode('-', $request->month);
+            $query->whereYear('created_at', $year)->whereMonth('created_at', $month);
+        }
+
         if ($request->cashier) {
             $query->where('cashier_name', 'like', '%' . $request->cashier . '%');
         }
 
-        $transactions = $query->paginate(15);
+        $transactions = $query->paginate(20);
 
         return view('reports', compact('transactions'));
     }

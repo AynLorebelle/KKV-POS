@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
         Route::get('/reports', [TransactionController::class, 'reports'])->name('reports');
         Route::get('/reports/export', [TransactionController::class, 'export'])->name('reports.export');
+        // Staff management
+        Route::get('/admin/staff', [StaffController::class, 'create'])->name('admin.staff.create');
+        Route::post('/admin/staff', [StaffController::class, 'store'])->name('admin.staff.store');
+        Route::delete('/admin/staff/{user}', [StaffController::class, 'destroy'])->name('admin.staff.destroy');
     });
 });
 

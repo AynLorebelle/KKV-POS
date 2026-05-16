@@ -20,6 +20,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Customer
     Route::middleware('role:customer')->group(function () {
+        Route::get('/catalog', [ProductController::class, 'catalog'])->name('catalog');
         Route::get('/history', [DashboardController::class, 'history'])->name('history');
     });
 

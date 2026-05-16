@@ -1,37 +1,62 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Customer History') }}
-        </h2>
+        <div class="flex items-center gap-3">
+            <h2 class="font-extrabold text-xl text-accent leading-tight">Purchase History</h2>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-green-500 text-white border-2 border-green-700">🛍️ Customer</span>
+        </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white border-2 border-accent shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-xl overflow-hidden p-6">
-                <h3 class="text-xl font-bold text-accent mb-6 border-b-2 border-accent pb-2">Your Past Purchases</h3>
-                
-                <div class="space-y-4">
-                    @forelse($transactions as $tx)
-                        <div class="border-2 border-accent rounded-xl p-4 flex justify-between items-center hover:bg-wood-light transition-colors">
-                            <div>
-                                <div class="font-bold text-lg text-accent">Invoice #{{ $tx->invoice_no }}</div>
-                                <div class="text-sm text-gray-600">{{ $tx->created_at->format('M d, Y H:i A') }}</div>
-                                <div class="mt-2 text-sm text-gray-700">
-                                    {{ $tx->items->count() }} items purchased
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="relative bg-primary border-2 border-accent shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] rounded-2xl p-6 mb-8 overflow-hidden">
+            <div class="absolute -top-6 -right-6 w-28 h-28 rounded-full bg-accent/20 pointer-events-none"></div>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-accent/60 mb-1">Hello, {{ auth()->user()->name }}! 🛍️</p>
+            <h3 class="text-xl font-black text-accent">Your past purchases</h3>
+            <p class="text-sm text-accent/70 mt-1">{{ $transactions->count() }} {{ Str::plural('order', $transactions->count()) }} found.</p>
+        </div>
+
+        <div class="space-y-4">
+            @forelse($transactions as $tx)
+                <div class="bg-white border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-2xl overflow-hidden hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all">
+                    <div class="flex items-center justify-between px-6 py-4 bg-wood-light border-b-2 border-accent/10">
+                        <div>
+                            <div class="font-black text-accent">Invoice #{{ $tx->invoice_no }}</div>
+                            <div class="text-xs text-gray-500 mt-0.5">{{ $tx->created_at->format('M d, Y · h:i A') }}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-black text-2xl text-accent">₱{{ number_format($tx->total_amount, 2) }}</div>
+                            <div class="text-xs text-gray-500">{{ $tx->items->count() }} {{ Str::plural('item', $tx->items->count()) }}</div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 space-y-2">
+                        @foreach($tx->items as $item)
+                            <div class="flex justify-between items-center text-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-lg">🧴</span>
+                                    <div>
+                                        <div class="font-bold text-accent">{{ $item->product->name ?? 'Unknown Product' }}</div>
+                                        <div class="text-xs text-gray-400">₱{{ number_format($item->price, 2) }} × {{ $item->qty }}</div>
+                                    </div>
                                 </div>
+                                <div class="font-black text-accent">₱{{ number_format($item->amount, 2) }}</div>
                             </div>
-                            <div class="text-right">
-                                <div class="font-black text-xl text-accent">₱{{ number_format($tx->total_amount, 2) }}</div>
-                                <a href="{{ route('invoice.show', $tx) }}" class="inline-block mt-2 bg-primary border border-accent text-accent font-bold px-4 py-1 rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm">View Receipt</a>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="text-center py-12 text-gray-500 font-bold">
-                            You have no purchase history yet.
-                        </div>
-                    @endforelse
+                        @endforeach
+                    </div>
+                    <div class="px-6 pb-4">
+                        <a href="{{ route('invoice.show', $tx) }}" class="inline-flex items-center gap-2 bg-primary border-2 border-accent text-accent font-bold px-4 py-2 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all text-sm">
+                            🧾 View Full Receipt
+                        </a>
+                    </div>
                 </div>
-            </div>
+            @empty
+                <div class="bg-white border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-2xl p-14 text-center">
+                    <div class="text-5xl mb-3">🛍️</div>
+                    <p class="font-bold text-gray-500 text-lg">No purchases yet</p>
+                    <p class="text-sm text-gray-400 mt-1 mb-5">Visit our store to start shopping!</p>
+                    <a href="{{ route('catalog') }}" class="inline-block bg-primary border-2 border-accent text-accent font-bold px-5 py-2 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all text-sm">
+                        Browse Catalog
+                    </a>
+                </div>
+            @endforelse
         </div>
     </div>
 </x-app-layout>

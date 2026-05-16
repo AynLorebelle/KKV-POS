@@ -16,6 +16,12 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
 
+    public function catalog()
+    {
+        $products = Product::orderBy('name')->get();
+        return view('catalog', compact('products'));
+    }
+
     public function create()
     {
         return view('products.create');

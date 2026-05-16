@@ -12,8 +12,13 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        // Customers get their own dashboard view (purchase history)
         if (auth()->user()->role === 'customer') {
-            return redirect()->route('history');
+            $transactions = \App\Models\Transaction::with('items.product')
+                ->where('cashier_name', auth()->user()->name)
+                ->latest()
+                ->get();
+            return view('customer-dashboard', compact('transactions'));
         }
 
         $today = Carbon::today();

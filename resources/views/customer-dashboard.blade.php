@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <h2 class="font-extrabold text-xl text-accent leading-tight">My Dashboard</h2>
-                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-green-500 text-white border-2 border-green-700">🛍️ Customer</span>
+                
             </div>
             <span class="text-sm font-medium text-accent/50 font-mono hidden sm:block">{{ now()->format('D, d M Y') }}</span>
         </div>

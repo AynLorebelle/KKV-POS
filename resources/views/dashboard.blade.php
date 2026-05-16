@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2">
                 <h2 class="font-extrabold text-xl text-accent leading-tight tracking-tight">
                     Welcome to KKV !!!
                 </h2>
@@ -16,25 +16,25 @@
         {{-- ── ROW 1: SUMMARY CARDS ── --}}
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="relative bg-primary border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl p-5 overflow-hidden">
-                <div class="absolute -top-3 -right-3 text-[64px] font-black opacity-10 select-none leading-none">₱</div>
+                <div class="absolute -top-3 -right-3 text-[64px] font-black opacity-5 select-none leading-none">₱</div>
                 <p class="text-[10px] font-bold uppercase tracking-widest text-accent/70 mb-1">Today's Sales</p>
                 <p class="text-2xl font-black text-accent leading-tight">₱{{ number_format($todaySales, 2) }}</p>
                 <p class="text-[10px] text-accent/60 mt-1.5 font-medium">{{ now()->format('M d, Y') }}</p>
             </div>
             <div class="relative bg-white border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl p-5 overflow-hidden">
-                <div class="absolute -top-3 -right-3 text-[64px] font-black opacity-5 select-none leading-none">💰</div>
+                <div class="absolute -top-3 -right-3 text-[64px] font-black opacity-10 select-none leading-none">💰</div>
                 <p class="text-[10px] font-bold uppercase tracking-widest text-accent/70 mb-1">Total Revenue</p>
                 <p class="text-2xl font-black text-accent leading-tight">₱{{ number_format($totalRevenue, 2) }}</p>
                 <p class="text-[10px] text-accent/60 mt-1.5 font-medium">All time</p>
             </div>
-            <div class="relative bg-accent border-2 border-accent shadow-[4px_4px_0px_0px_rgba(245,196,0,1)] rounded-xl p-5 overflow-hidden">
-                <div class="absolute -top-3 -right-3 text-[64px] font-black opacity-10 select-none leading-none text-white">Σ</div>
-                <p class="text-[10px] font-bold uppercase tracking-widest text-white/70 mb-1">Transactions</p>
-                <p class="text-2xl font-black text-white leading-tight">{{ number_format($totalTx) }}</p>
-                <p class="text-[10px] text-white/50 mt-1.5 font-medium">Total invoices</p>
+            <div class="relative bg-white border-2 border-accent shadow-[4px_4px_0px_0px_rgba(245,196,0,1)] rounded-xl p-5 overflow-hidden">
+                <div class="absolute -top-3 -right-3 text-[64px] font-black opacity-10 select-none leading-none text-accent">Σ</div>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-accent/70 mb-1">Transactions</p>
+                <p class="text-2xl font-black text-accent leading-tight">{{ number_format($totalTx) }}</p>
+                <p class="text-[10px] text-accent/50 mt-1.5 font-medium">Total invoices</p>
             </div>
             <div class="relative bg-white border-2 border-red-500 shadow-[4px_4px_0px_0px_rgba(239,68,68,1)] rounded-xl p-5 overflow-hidden">
-                <div class="absolute -top-3 -right-3 text-[64px] font-black opacity-5 select-none leading-none text-red-500">⚠</div>
+                <div class="absolute -top-3 -right-3 text-[64px] font-black opacity-10 select-none leading-none text-red-500">⚠</div>
                 <p class="text-[10px] font-bold uppercase tracking-widest text-red-500/70 mb-1">Low Stock Alerts</p>
                 <p class="text-2xl font-black text-red-600 leading-tight">{{ $lowStock }}</p>
                 <p class="text-[10px] text-red-500/60 mt-1.5 font-medium">Products ≤ 10 units</p>
@@ -49,7 +49,7 @@
                 <a href="{{ route('products.create') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Add Product</a>
                 <a href="{{ route('products.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Manage Products</a>
                 @if(auth()->user()->role === 'admin')
-                <a href="{{ route('reports') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white border-2 border-accent font-bold text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Sales Reports</a>
+                <a href="{{ route('reports') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white text-accent border-2 border-accent font-bold text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Sales Reports</a>
                 <a href="{{ route('admin.staff.create') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Add Staff</a>
                 @endif
             </div>

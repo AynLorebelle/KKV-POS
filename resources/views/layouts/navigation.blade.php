@@ -1,10 +1,10 @@
 <nav x-data="{ open: false }" class="bg-primary border-b-2 border-accent sticky top-50 z-30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -ml-2">
         <div class="flex justify-between h-20">
 
             {{-- Brand --}}
             <div class="flex items-center gap-5">
-                <a href="{{ route('dashboard') }}" class="flex items-center gap-2 shrink-0 group">
+                <a href="{{ route('dashboard') }}" class="flex items-center gap-2 shrink-0 group ">
                     <img src="{{ asset('images/logo.svg') }}"
                          alt="KKV"
                          class="w-20 h-10 object-contain group-hover:scale-110 transition-transform shrink-0">

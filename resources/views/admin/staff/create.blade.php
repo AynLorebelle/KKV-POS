@@ -53,7 +53,7 @@
                             <label class="cursor-pointer">
                                 <input type="radio" name="role" value="cashier" class="sr-only peer" {{ old('role', 'cashier') === 'cashier' ? 'checked' : '' }}>
                                 <div class="flex flex-col items-center gap-1 p-3 rounded-xl border-2 border-gray-200 text-center transition-all peer-checked:border-accent peer-checked:bg-primary peer-checked:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:border-accent/50">
-                                    <span class="text-2xl">🧾</span>
+                                    
                                     <span class="text-xs font-black text-accent uppercase">Cashier</span>
                                     <span class="text-[10px] text-gray-500">POS & Products</span>
                                 </div>

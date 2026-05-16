@@ -30,14 +30,7 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <!-- Customer-only notice -->
-        <div class="mt-4 p-3 rounded-xl bg-green-50 border-2 border-green-200 flex items-center gap-3">
-            <span class="text-2xl">🛍️</span>
-            <div>
-                <p class="text-xs font-black text-green-800 uppercase tracking-wide">Registering as Customer</p>
-                <p class="text-[11px] text-green-600 mt-0.5">You will have access to view your order history.</p>
-            </div>
-        </div>
+    
 
         <div class="flex items-center justify-end mt-5">
             <a class="underline text-sm font-medium text-accent/70 hover:text-accent" href="{{ route('login') }}">

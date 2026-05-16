@@ -6,15 +6,15 @@
                     {{ __('Sales Reports') }}
                 </h2>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-accent text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-accent">
-                    👑 Admin
+                     Admin
                 </span>
             </div>
             <div class="flex gap-2 no-print">
                 <button onclick="window.print()" class="inline-flex items-center gap-2 bg-white border-2 border-accent text-accent font-bold px-4 py-2 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all text-sm">
-                    🖨️ Print Report
+                     Print Report
                 </button>
                 <a href="{{ route('reports.export') }}" class="inline-flex items-center gap-2 bg-primary border-2 border-accent text-accent font-bold px-4 py-2 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all text-sm">
-                    📥 Export Excel
+                     Export Excel
                 </a>
             </div>
         </div>

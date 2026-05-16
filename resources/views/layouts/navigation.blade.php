@@ -1,37 +1,34 @@
-<nav x-data="{ open: false }" class="bg-primary border-b-2 border-accent sticky top-0 z-40">
+<nav x-data="{ open: false }" class="bg-primary border-b-2 border-accent sticky top-50 z-30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-14">
+        <div class="flex justify-between h-20">
 
             {{-- Brand --}}
             <div class="flex items-center gap-5">
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-2 shrink-0 group">
-                    <img src="{{ asset('images/kkv logo.png') }}"
+                    <img src="{{ asset('images/logo.svg') }}"
                          alt="KKV"
-                         class="w-10 h-10 object-contain group-hover:scale-110 transition-transform shrink-0">
-                    <span class="font-black text-accent text-sm hidden sm:block tracking-tight leading-none">
-                        KKV <span class="font-normal opacity-50 text-xs">Happy Finds</span>
-                    </span>
+                         class="w-20 h-10 object-contain group-hover:scale-110 transition-transform shrink-0">
                 </a>
 
                 {{-- Role-specific nav links --}}
                 @php $role = auth()->user()->role; @endphp
-                <div class="hidden sm:flex items-center gap-0.5">
+                <div class="hidden sm:flex items-center gap-5">
 
                     @if($role === 'admin' || $role === 'cashier')
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">Dashboard</x-nav-link>
-                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">Products</x-nav-link>
-                        <x-nav-link :href="route('pos.index')" :active="request()->routeIs('pos.*')">Checkout</x-nav-link>
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"> Dashboard</x-nav-link>
+                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')"> Products</x-nav-link>
+                        <x-nav-link :href="route('pos.index')" :active="request()->routeIs('pos.*')"> Checkout</x-nav-link>
                     @endif
 
                     @if($role === 'admin')
-                        <x-nav-link :href="route('reports')" :active="request()->routeIs('reports*')">Reports</x-nav-link>
-                        <x-nav-link :href="route('admin.staff.create')" :active="request()->routeIs('admin.staff.*')">Staff</x-nav-link>
+                        <x-nav-link :href="route('reports')" :active="request()->routeIs('reports*')"> Reports</x-nav-link>
+                        <x-nav-link :href="route('admin.staff.create')" :active="request()->routeIs('admin.staff.*')"> Staff</x-nav-link>
                     @endif
 
                     @if($role === 'customer')
                         {{-- Customers: 2 tabs only --}}
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">🏠 Dashboard</x-nav-link>
-                        <x-nav-link :href="route('catalog')" :active="request()->routeIs('catalog')">🛍️ Products</x-nav-link>
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"> Dashboard</x-nav-link>
+                        <x-nav-link :href="route('catalog')" :active="request()->routeIs('catalog')"> Products</x-nav-link>
                     @endif
 
                 </div>
@@ -40,14 +37,14 @@
             {{-- Right side: role badge + user dropdown --}}
             <div class="hidden sm:flex sm:items-center gap-3">
                 @if($role === 'admin')
-                    <span class="text-[10px] font-black uppercase tracking-widest bg-accent text-white px-2.5 py-1 rounded-full border-2 border-accent">👑 Admin</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest bg-accent text-white px-2.5 py-1 rounded-full border-2 border-accent"> Admin</span>
                 @elseif($role === 'cashier')
-                    <span class="text-[10px] font-black uppercase tracking-widest bg-blue-500 text-white px-2.5 py-1 rounded-full border-2 border-blue-700">🧾 Cashier</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest bg-blue-500 text-white px-2.5 py-1 rounded-full border-2 border-blue-700"> Cashier</span>
                 @elseif($role === 'customer')
-                    <span class="text-[10px] font-black uppercase tracking-widest bg-green-500 text-white px-2.5 py-1 rounded-full border-2 border-green-700">🛍️ Customer</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest bg-green-500 text-white px-2.5 py-1 rounded-full border-2 border-green-700"> Customer</span>
                 @endif
 
-                <x-dropdown align="right" width="48">
+                <x-dropdown align="right" width=fit>
                     <x-slot name="trigger">
                         <button class="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 border-accent text-sm font-bold rounded-lg text-accent bg-white hover:bg-accent hover:text-white transition-all duration-150">
                             {{ Auth::user()->name }}
@@ -81,16 +78,16 @@
         <div class="pt-2 pb-3 space-y-1 px-4">
             @php $role = auth()->user()->role; @endphp
             @if($role !== 'customer')
-                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">Dashboard</x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">Products</x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('pos.index')" :active="request()->routeIs('pos.*')">Checkout</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"> Dashboard</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')"> Products</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('pos.index')" :active="request()->routeIs('pos.*')"> Checkout</x-responsive-nav-link>
                 @if($role === 'admin')
-                    <x-responsive-nav-link :href="route('reports')" :active="request()->routeIs('reports*')">Reports</x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('admin.staff.create')" :active="request()->routeIs('admin.staff.*')">Staff</x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('reports')" :active="request()->routeIs('reports*')"> Reports</x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('admin.staff.create')" :active="request()->routeIs('admin.staff.*')"> Staff</x-responsive-nav-link>
                 @endif
             @else
-                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">🏠 Dashboard</x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('catalog')" :active="request()->routeIs('catalog')">🛍️ Products</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"> Dashboard</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('catalog')" :active="request()->routeIs('catalog')">  Products</x-responsive-nav-link>
             @endif
         </div>
         <div class="pt-3 pb-3 border-t border-accent/20 px-4">

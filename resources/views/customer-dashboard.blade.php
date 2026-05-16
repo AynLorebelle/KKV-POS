@@ -62,17 +62,17 @@
                     <div class="px-6 pb-4">
                         <a href="{{ route('invoice.show', $tx) }}"
                            class="inline-flex items-center gap-2 bg-primary border-2 border-accent text-accent font-bold px-4 py-2 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all text-sm">
-                            🧾 View Receipt
+                             View Receipt
                         </a>
                     </div>
                 </div>
             @empty
                 <div class="bg-white border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-2xl p-12 text-center">
-                    <div class="text-6xl mb-4">🛍️</div>
+                    <div class="text-6xl mb-4"> </div>
                     <p class="font-black text-accent text-lg">No purchases yet!</p>
                     <p class="text-sm text-gray-400 mt-2 mb-5">Browse our catalog to see what's available in store.</p>
                     <a href="{{ route('catalog') }}" class="inline-flex items-center gap-2 bg-primary border-2 border-accent text-accent font-bold px-5 py-2.5 rounded-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all text-sm">
-                        🛍️ Browse Products
+                         Browse Products
                     </a>
                 </div>
             @endforelse

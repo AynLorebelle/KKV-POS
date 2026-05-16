@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white'])
+@props(['align' => 'right', 'width' => 'fit', 'contentClasses' => 'py-1 bg-white'])
 
 @php
 $alignmentClasses = match ($align) {
@@ -9,6 +9,7 @@ $alignmentClasses = match ($align) {
 
 $width = match ($width) {
     '48' => 'w-48',
+    'fit' => 'w-fit min-w-max',
     default => $width,
 };
 @endphp

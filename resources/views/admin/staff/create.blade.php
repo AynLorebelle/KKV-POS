@@ -4,7 +4,7 @@
             <div class="flex items-center gap-3">
                 <h2 class="font-extrabold text-xl text-accent leading-tight tracking-tight">Staff Management</h2>
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-accent text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-accent">
-                    👑 Admin Only
+                     Admin Only
                 </span>
             </div>
             <a href="{{ route('dashboard') }}" class="text-sm font-bold text-accent/70 hover:text-accent underline">← Back to Dashboard</a>
@@ -61,7 +61,7 @@
                             <label class="cursor-pointer">
                                 <input type="radio" name="role" value="admin" class="sr-only peer" {{ old('role') === 'admin' ? 'checked' : '' }}>
                                 <div class="flex flex-col items-center gap-1 p-3 rounded-xl border-2 border-gray-200 text-center transition-all peer-checked:border-accent peer-checked:bg-primary peer-checked:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:border-accent/50">
-                                    <span class="text-2xl">👑</span>
+                                    
                                     <span class="text-xs font-black text-accent uppercase">Admin</span>
                                     <span class="text-[10px] text-gray-500">Full access</span>
                                 </div>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="flex items-center gap-2">
                                 <span class="text-[10px] font-black px-2 py-0.5 rounded-full border {{ $member->role === 'admin' ? 'bg-accent/10 text-accent border-accent/30' : 'bg-blue-100 text-blue-700 border-blue-200' }} uppercase tracking-wide">
-                                    {{ $member->role === 'admin' ? '👑' : '🧾' }} {{ $member->role }}
+                                    {{ $member->role === 'admin' ? '' : '' }} {{ $member->role }}
                                 </span>
                                 @if($member->id !== auth()->id())
                                     <form action="{{ route('admin.staff.destroy', $member) }}" method="POST" onsubmit="return confirm('Remove {{ $member->name }}?')">

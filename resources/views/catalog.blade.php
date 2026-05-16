@@ -21,7 +21,7 @@
 
         {{-- Search --}}
         <div class="mb-6">
-            <input type="text" id="catalogSearch" placeholder="🔍  Search products by name..."
+            <input type="text" id="catalogSearch" placeholder=" Search products by name..."
                    oninput="filterCatalog(this.value)"
                    class="w-full border-2 border-accent rounded-xl px-5 py-3 font-bold text-accent focus:outline-none focus:ring-2 focus:ring-primary bg-white placeholder:font-normal placeholder:text-gray-400">
         </div>
@@ -34,7 +34,7 @@
 
                     {{-- Product card top: colored block with status badge, no image --}}
                     <div class="relative flex items-center justify-center py-8 {{ $product->stock === 0 ? 'bg-gray-100' : 'bg-wood-light' }} border-b-2 border-accent/10">
-                        <span class="text-5xl select-none">🧴</span>
+
                         {{-- Stock badge --}}
                         @if($product->stock === 0)
                             <span class="absolute top-2 right-2 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full border border-red-700 uppercase tracking-wide">Out of Stock</span>
@@ -62,7 +62,7 @@
         </div>
 
         <div id="noResults" class="hidden text-center py-16 text-gray-400 font-medium">
-            <div class="text-4xl mb-3">🔍</div>
+            <div class="text-4xl mb-3"> </div>
             No products match your search.
         </div>
     </div>

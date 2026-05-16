@@ -33,9 +33,9 @@
             {{-- Logo --}}
             <a href="/" class="flex flex-col items-center mb-4 group cursor-pointer">
                 <div class="logo-float">
-                    <img src="{{ asset('images/kkv logo.png') }}"
+                    <img src="{{ asset('images/logo.svg') }}"
                          alt="KKV Happy Finds"
-                         class="w-44 h-44 object-contain drop-shadow-[0_8px_24px_rgba(245,196,0,0.5)] group-hover:scale-105 transition-transform duration-300">
+                         class="w-30 h-20 object-contain drop-shadow-[0_8px_24px_rgba(245,196,0,0.5)] group-hover:scale-105 transition-transform duration-300">
                 </div>
                 <span class="text-[10px] font-bold tracking-[0.35em] text-accent/50 uppercase mt-2 group-hover:text-accent/70 transition-colors">Cavan Branch</span>
             </a>

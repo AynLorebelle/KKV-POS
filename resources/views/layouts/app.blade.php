@@ -25,10 +25,10 @@
                         {{ $header }}
                     </div>
                 </header>
-            @endisset
+            @endisset 
 
             <!-- Page Content -->
-            <main class="py-8">
+            <main class="py-30">
                 {{ $slot }}
             </main>
         </div>

@@ -5,16 +5,7 @@
                 <h2 class="font-extrabold text-xl text-accent leading-tight tracking-tight">
                     Welcome to KKV !!!
                 </h2>
-                @php $role = auth()->user()->role; @endphp
-                @if($role === 'admin')
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-accent text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-accent">
-                        👑 Admin
-                    </span>
-                @elseif($role === 'cashier')
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-blue-500 text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] border-2 border-blue-700">
-                        🧾 Cashier
-                    </span>
-                @endif
+              
             </div>
             <span class="text-sm font-medium text-accent/60 font-mono">{{ now()->format('D, d M Y') }}</span>
         </div>
@@ -54,12 +45,12 @@
         <div class="bg-wood-light border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl p-5">
             <p class="text-[10px] font-bold uppercase tracking-widest text-accent/60 mb-3">Quick Actions</p>
             <div class="flex flex-wrap gap-3">
-                <a href="{{ route('pos.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-primary border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all">🛒 New Sale</a>
-                <a href="{{ route('products.create') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all">+ Add Product</a>
-                <a href="{{ route('products.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all">📦 Manage Products</a>
+                <a href="{{ route('pos.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-primary border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> New Sale</a>
+                <a href="{{ route('products.create') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Add Product</a>
+                <a href="{{ route('products.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Manage Products</a>
                 @if(auth()->user()->role === 'admin')
-                <a href="{{ route('reports') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white border-2 border-accent font-bold text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all">📊 Sales Reports</a>
-                <a href="{{ route('admin.staff.create') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all">👤 Add Staff</a>
+                <a href="{{ route('reports') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white border-2 border-accent font-bold text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Sales Reports</a>
+                <a href="{{ route('admin.staff.create') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Add Staff</a>
                 @endif
             </div>
         </div>
@@ -138,7 +129,7 @@
                     </div>
                 @else
                     <div class="mt-4 pt-4 border-t-2 border-accent/10 text-center text-gray-400 text-sm flex-1 flex flex-col items-center justify-center gap-2">
-                        <span class="text-3xl">📅</span>
+                        
                         <p class="font-medium">Pick a date to see<br>daily sales breakdown</p>
                     </div>
                 @endif

@@ -12,13 +12,15 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        // Customers get their own dashboard view (purchase history)
+        // Customers get their own dashboard view (trending products)
         if (auth()->user()->role === 'customer') {
-            $transactions = \App\Models\Transaction::with('items.product')
-                ->where('cashier_name', auth()->user()->name)
-                ->latest()
+            $trendingProducts = \App\Models\TransactionItem::select('product_id', DB::raw('SUM(qty) as total_qty'))
+                ->with('product')
+                ->groupBy('product_id')
+                ->orderByDesc('total_qty')
+                ->limit(5)
                 ->get();
-            return view('customer-dashboard', compact('transactions'));
+            return view('customer-dashboard', compact('trendingProducts'));
         }
 
         $today = Carbon::today();
@@ -57,6 +59,11 @@ class DashboardController extends Controller
             ];
         });
 
+        // This week summary
+        $startOfWeek = Carbon::now()->startOfWeek();
+        $thisWeekSales = Transaction::where('created_at', '>=', $startOfWeek)->sum('total_amount');
+        $thisWeekTx = Transaction::where('created_at', '>=', $startOfWeek)->count();
+
         // Date-filtered sales (for the calendar filter widget)
         $selectedDate  = $request->get('filter_date', null);
         $filteredTx    = null;
@@ -77,7 +84,9 @@ class DashboardController extends Controller
             'monthlyData',
             'selectedDate',
             'filteredTx',
-            'filteredTotal'
+            'filteredTotal',
+            'thisWeekSales',
+            'thisWeekTx'
         ));
     }
 

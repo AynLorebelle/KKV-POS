@@ -1,5 +1,5 @@
 <nav x-data="{ open: false }" class="bg-primary border-b-2 border-accent sticky top-50 z-30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -ml-2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20">
 
             {{-- Brand --}}

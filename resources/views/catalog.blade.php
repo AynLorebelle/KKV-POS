@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center gap-3">
             <h2 class="font-extrabold text-xl text-accent leading-tight">Products Catalog</h2>
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-green-500 text-white border-2 border-green-700">🛍️ Customer</span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-green-500 text-white border-2 border-green-700"> Customer</span>
         </div>
     </x-slot>
 
@@ -47,7 +47,7 @@
 
                     <div class="p-4 flex flex-col flex-1">
                         <div class="font-black text-accent text-sm leading-tight">{{ $product->name }}</div>
-                        <div class="text-[10px] font-mono text-gray-400 mt-0.5 mb-3">{{ $product->barcode }}</div>
+                        <div class="text-[10px] font-mono text-gray-400 mt-0.5 mb-3"> </div>
                         <div class="mt-auto flex items-end justify-between">
                             <div class="font-black text-xl text-accent">₱{{ number_format($product->price, 2) }}</div>
                             <div class="text-[10px] {{ $product->stock === 0 ? 'text-red-400' : 'text-gray-400' }} font-medium">

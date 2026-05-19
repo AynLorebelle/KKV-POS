@@ -37,17 +37,12 @@
                         #{{ $index + 1 }}
                     </div>
 
-                    {{-- Image / Icon Placeholder --}}
-                    <div class="w-20 h-20 bg-wood-light border-2 border-accent/20 rounded-xl flex items-center justify-center shrink-0 ml-2 shadow-inner overflow-hidden relative group">
-                        <span class="text-3xl opacity-50 group-hover:scale-110 transition-transform duration-300">🛍️</span>
-                        {{-- Fallback 'image' style representation --}}
-                        <div class="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent pointer-events-none"></div>
-                    </div>
+                   
 
                     {{-- Product Info --}}
                     <div class="ml-5 flex-1">
                         <div class="font-black text-lg text-accent leading-tight">{{ $product->name }}</div>
-                        <div class="text-xs text-gray-500 font-mono mt-1">{{ $product->barcode }}</div>
+                       
                     </div>
 
                     {{-- Price & Sales --}}

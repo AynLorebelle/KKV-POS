@@ -1,12 +1,12 @@
 # KKV POS System
 
-![KKV POS System](public/favicon.ico)
+
 
 A modern, premium Point of Sale (POS) and Inventory Management system built with **Laravel 11** and **Laravel Breeze**. This application features a robust backend with role-based access control, a high-performance Vue/Blade frontend, and a beautiful, responsive user interface following a strict five-color design system.
 
 ---
 
-## 📖 Table of Contents
+## Table of Contents
 1. [Project Overview](#project-overview)
 2. [Technical Stack](#technical-stack)
 3. [System Features](#system-features)
@@ -16,12 +16,12 @@ A modern, premium Point of Sale (POS) and Inventory Management system built with
 
 ---
 
-## 🎯 Project Overview
+##  Project Overview
 The KKV POS System is designed to handle core retail operations, including product management, stock tracking, and secure transaction processing. It serves both internal staff (Admins/Cashiers) through an advanced Dashboard and end-customers through a unified Customer Portal.
 
 ---
 
-## 🛠 Technical Stack
+##  Technical Stack
 - **Framework:** Laravel 11.x
 - **Authentication:** Laravel Breeze
 - **Database:** MySQL
@@ -31,11 +31,12 @@ The KKV POS System is designed to handle core retail operations, including produ
 
 ---
 
-## ✨ System Features
+## System Features
 
 ### 1. Role-Based Access Control (RBAC)
-- **Admin/Cashier (`role: admin`)**: Full access to POS operations, inventory management, transaction history, and sales reporting.
-- **Customer (`role: customer`)**: Access to the Customer Dashboard for personal transaction tracking and history.
+- **Admin(`role: admin`)**: Full access to POS operations, inventory management, transaction history,add staff like cashier/admin and sales reporting where the admin can edit/delete/add/update products and transactions.
+**Cashier (`role: cashier`)**: Can access to POS operations but  limited to checkout and update product management only.
+- **Customer (`role: customer`)**: Limited to view products only.
 
 ### 2. POS Operations
 - Real-time cart calculation (Total, VAT, Change).
@@ -134,7 +135,7 @@ The application will be available at `http://127.0.0.1:8000`.
 
 The system utilizes an optimized relational schema consisting of the following primary tables:
 
-1. **`users`**: Manages authentication and roles (`admin`, `customer`).
+1. **`users`**: Manages authentication and roles (`admin`, `cashier`,`customer`).
 2. **`products`**: Central repository for store inventory (barcodes, names, pricing, stock levels).
 3. **`transactions`**: Records of sale (invoice numbers, cashier details, tax computations, cash tendered).
 4. **`transaction_items`**: Pivot/Details table linking `transactions` to `products`, tracking the quantity, unit price, and subtotal per item at the time of purchase.
@@ -149,11 +150,11 @@ Relationships:
 
 ## 🔄 System Flow
 
-1. **Authentication:** User logs in via the Breeze auth scaffold. Middleware intercepts the request and routes `admin` users to the POS System and `customer` users to the Customer Dashboard.
+1. **Authentication:** User logs in via the Breeze auth scaffold. Middleware intercepts the request and routes `admin` users to the Admin Dashboard, `cashier` users to the Cashier Dashboard and `customer` users to the Customer Dashboard.
 2. **Inventory Sync:** Admins add products with barcodes and initial stock. 
 3. **Point of Sale:** Cashier scans/selects products. The system dynamically updates the cart total and VAT computations via interactive JS/Frontend logic.
 4. **Checkout:** Upon tender, the system writes to the `transactions` and `transaction_items` tables, simultaneously decrementing product `stock`.
 5. **Receipt:** A dynamic thermal receipt is presented for printing.
 
 ---
-*Developed by CAVAN FINAL PROJECT*
+*Developed by Ayn Lorebelle Cavan

@@ -44,13 +44,13 @@
         {{-- ── ROW 2: QUICK ACTIONS ── --}}
         <div class="bg-wood-light border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl p-5">
             <p class="text-[10px] font-bold uppercase tracking-widest text-accent/60 mb-3">Quick Actions</p>
-            <div class="flex flex-wrap w-full gap-3">
-                <a href="{{ route('pos.index') }}" class="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-primary border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all whitespace-nowrap"> New Sale</a>
-                <a href="{{ route('products.create') }}" class="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all whitespace-nowrap"> Add Product</a>
-                <a href="{{ route('products.index') }}" class="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all whitespace-nowrap"> Manage Products</a>
+            <div class="flex flex-wrap gap-3">
+                <a href="{{ route('pos.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-primary border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> New Sale</a>
+                <a href="{{ route('products.create') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Add Product</a>
+                <a href="{{ route('products.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Manage Products</a>
                 @if(auth()->user()->role === 'admin')
-                <a href="{{ route('reports') }}" class="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-white text-accent border-2 border-accent font-bold text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all whitespace-nowrap"> Sales Reports</a>
-                <a href="{{ route('admin.staff.create') }}" class="flex-1 flex justify-center items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all whitespace-nowrap"> Add Staff</a>
+                <a href="{{ route('reports') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white text-accent border-2 border-accent font-bold text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Sales Reports</a>
+                <a href="{{ route('admin.staff.create') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-accent font-bold text-accent text-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-none transition-all"> Add Staff</a>
                 @endif
             </div>
         </div>

@@ -42,25 +42,25 @@
             {{-- ── FILTER BAR ── --}}
             <div class="bg-wood-light border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl p-5 no-print">
                 <p class="text-[10px] font-bold uppercase tracking-widest text-accent/60 mb-3">Filter Reports</p>
-                <form action="{{ route('reports') }}" method="GET" class="flex flex-wrap w-full gap-4 items-end">
-                    <div class="flex-1 min-w-[200px]">
+                <form action="{{ route('reports') }}" method="GET" class="flex flex-wrap gap-4 items-end">
+                    <div>
                         <label class="block text-accent text-[11px] font-bold uppercase tracking-widest mb-1">Specific Date</label>
                         <input type="date" name="date" value="{{ request('date') }}"
-                               class="w-full border-2 border-accent rounded-lg px-4 py-2 font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-primary">
+                               class="border-2 border-accent rounded-lg px-4 py-2 font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-primary">
                     </div>
-                    <div class="flex-1 min-w-[200px]">
+                    <div>
                         <label class="block text-accent text-[11px] font-bold uppercase tracking-widest mb-1">By Month</label>
                         <input type="month" name="month" value="{{ request('month') }}"
-                               class="w-full border-2 border-accent rounded-lg px-4 py-2 font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-primary">
+                               class="border-2 border-accent rounded-lg px-4 py-2 font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-primary">
                     </div>
-                    <div class="flex-1 min-w-[200px]">
+                    <div>
                         <label class="block text-accent text-[11px] font-bold uppercase tracking-widest mb-1">By Cashier</label>
                         <input type="text" name="cashier" value="{{ request('cashier') }}" placeholder="Cashier Name"
-                               class="w-full border-2 border-accent rounded-lg px-4 py-2 font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-primary">
+                               class="border-2 border-accent rounded-lg px-4 py-2 font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-primary">
                     </div>
-                    <div class="flex flex-1 gap-2 min-w-[200px]">
-                        <button type="submit" class="flex-1 flex justify-center items-center bg-accent border-2 border-accent text-white font-bold px-5 py-2 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all">Apply</button>
-                        <a href="{{ route('reports') }}" class="flex-1 flex justify-center items-center px-5 py-2 bg-white border-2 border-accent text-accent font-bold rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all">Clear</a>
+                    <div class="flex gap-2">
+                        <button type="submit" class="bg-accent border-2 border-accent text-white font-bold px-5 py-2 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all">Apply</button>
+                        <a href="{{ route('reports') }}" class="px-5 py-2 bg-white border-2 border-accent text-accent font-bold rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all">Clear</a>
                     </div>
                 </form>
             </div>

@@ -12,21 +12,14 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        // Customers get their own dashboard view (trending products)
         if (auth()->user()->role === 'customer') {
-            $trendingProducts = DB::table('transaction_items')
-                ->join('products', 'transaction_items.product_id', '=', 'products.id')
-                ->select(
-                    'products.id',
-                    'products.name',
-                    'products.barcode',
-                    'products.price',
-                    DB::raw('SUM(transaction_items.qty) as total_qty')
-                )
-                ->groupBy('products.id', 'products.name', 'products.barcode', 'products.price')
+            $trendingProducts = \App\Models\TransactionItem::select('product_id', DB::raw('SUM(qty) as total_qty'))
+                ->with('product')
+                ->groupBy('product_id')
                 ->orderByDesc('total_qty')
                 ->limit(5)
                 ->get();
-                
             return view('customer-dashboard', compact('trendingProducts'));
         }
 

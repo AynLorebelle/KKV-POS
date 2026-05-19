@@ -28,6 +28,8 @@
         {{-- Trending Products --}}
         <div class="space-y-4">
             @forelse($trendingProducts as $index => $item)
+                @php $product = $item->product; @endphp
+                @if($product)
                 <div class="bg-white border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-2xl overflow-hidden flex items-center p-4 transition-all hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative">
                     
                     {{-- Rank Badge --}}
@@ -44,19 +46,20 @@
 
                     {{-- Product Info --}}
                     <div class="ml-5 flex-1">
-                        <div class="font-black text-lg text-accent leading-tight">{{ $item->name }}</div>
-                        <div class="text-xs text-gray-500 font-mono mt-1">{{ $item->barcode }}</div>
+                        <div class="font-black text-lg text-accent leading-tight">{{ $product->name }}</div>
+                        <div class="text-xs text-gray-500 font-mono mt-1">{{ $product->barcode }}</div>
                     </div>
 
                     {{-- Price & Sales --}}
                     <div class="text-right flex flex-col justify-center items-end ml-4 border-l-2 border-accent/10 pl-5">
-                        <div class="font-black text-xl text-accent">₱{{ number_format($item->price, 2) }}</div>
+                        <div class="font-black text-xl text-accent">₱{{ number_format($product->price, 2) }}</div>
                         <div class="text-[10px] font-bold text-green-700 bg-green-100 border border-green-300 px-2.5 py-0.5 rounded-full mt-2 inline-flex items-center gap-1 shadow-sm uppercase tracking-wider">
                             🔥 {{ number_format($item->total_qty) }} sold
                         </div>
                     </div>
 
                 </div>
+                @endif
             @empty
                 <div class="bg-white border-2 border-accent shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-2xl p-12 text-center">
                     <div class="text-6xl mb-4">🛒</div>

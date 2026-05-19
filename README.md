@@ -55,7 +55,7 @@ The KKV POS System is designed to handle core retail operations, including produ
 
 ---
 
-## 🚀 Step-by-Step Setup Guide
+## Step-by-Step Setup Guide
 
 This section provides a strict, step-by-step guide to run this project in a local environment (e.g., XAMPP, Laragon) for evaluation purposes.
 
@@ -131,7 +131,7 @@ The application will be available at `http://127.0.0.1:8000`.
 
 ---
 
-## 🗄 Database Architecture
+##  Database Architecture
 
 The system utilizes an optimized relational schema consisting of the following primary tables:
 
@@ -148,7 +148,7 @@ Relationships:
 
 ---
 
-## 🔄 System Flow
+## System Flow
 
 1. **Authentication:** User logs in via the Breeze auth scaffold. Middleware intercepts the request and routes `admin` users to the Admin Dashboard, `cashier` users to the Cashier Dashboard and `customer` users to the Customer Dashboard.
 2. **Inventory Sync:** Admins add products with barcodes and initial stock. 
@@ -157,4 +157,4 @@ Relationships:
 5. **Receipt:** A dynamic thermal receipt is presented for printing.
 
 ---
-*Developed by Ayn Lorebelle Cavan
+Developed by Ayn Lorebelle Cavan IT -ELECT 2 Final Requirement under Sir.Wendell Cabalhin.

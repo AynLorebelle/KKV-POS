@@ -157,4 +157,4 @@ Relationships:
 5. **Receipt:** A dynamic thermal receipt is presented for printing.
 
 ---
-Developed by Ayn Lorebelle Cavan IT -ELECT 2 Final Requirement under Sir.Wendell Cabalhin.
+Developed by Ayn Lorebelle Cavan IT -ELECT 2 Course Final Requirement under Sir.Wendell Cabalhin.
